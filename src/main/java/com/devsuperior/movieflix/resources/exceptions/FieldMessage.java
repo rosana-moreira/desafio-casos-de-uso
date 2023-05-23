@@ -1,4 +1,4 @@
-package resources.exceptions;
+package com.devsuperior.movieflix.resources.exceptions;
 
 import java.io.Serializable;
 

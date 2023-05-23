@@ -1,4 +1,4 @@
-package resources;
+package com.devsuperior.movieflix.resources;
 
 import com.devsuperior.movieflix.dto.UserDTO;
 import org.springframework.beans.factory.annotation.Autowired;

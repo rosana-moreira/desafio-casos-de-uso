@@ -1,40 +1,43 @@
 package com.devsuperior.movieflix.dto;
 
-import com.devsuperior.movieflix.entities.Movie;
-
 import java.io.Serializable;
+
+import com.devsuperior.movieflix.entities.Movie;
 
 public class MovieDTO implements Serializable {
     private static final long serialVersionUID = 1L;
+
     private Long id;
     private String title;
-    private String subtitle;
+    private String subTitle;
     private Integer year;
     private String imgUrl;
     private String synopsis;
-    private Long genreId;
+
+    private GenreDTO genre;
 
     public MovieDTO() {
     }
 
-    public MovieDTO(Long id, String title, String subtitle, Integer year, String imgUrl, String synopsis, Long genreId) {
+    public MovieDTO(Long id, String title, String subTitle, Integer year, String imgUrl, String synopsis,
+                    GenreDTO genre) {
         this.id = id;
         this.title = title;
-        this.subtitle = subtitle;
+        this.subTitle = subTitle;
         this.year = year;
         this.imgUrl = imgUrl;
         this.synopsis = synopsis;
-        this.genreId = genreId;
+        this.genre = genre;
     }
 
     public MovieDTO(Movie entity) {
         id = entity.getId();
         title = entity.getTitle();
-        subtitle = entity.getSubTitle();
+        subTitle = entity.getSubTitle();
         year = entity.getYear();
         imgUrl = entity.getImgUrl();
         synopsis = entity.getSynopsis();
-        genreId = entity.getGenre().getId();
+        this.genre = new GenreDTO(entity.getGenre());
     }
 
     public Long getId() {
@@ -53,12 +56,12 @@ public class MovieDTO implements Serializable {
         this.title = title;
     }
 
-    public String getSubtitle() {
-        return subtitle;
+    public String getSubTitle() {
+        return subTitle;
     }
 
-    public void setSubtitle(String subtitle) {
-        this.subtitle = subtitle;
+    public void setSubTitle(String subTitle) {
+        this.subTitle = subTitle;
     }
 
     public Integer getYear() {
@@ -85,11 +88,7 @@ public class MovieDTO implements Serializable {
         this.synopsis = synopsis;
     }
 
-    public Long getGenreId() {
-        return genreId;
-    }
-
-    public void setGenreId(Long genreId) {
-        this.genreId = genreId;
+    public GenreDTO getGenre() {
+        return genre;
     }
 }
